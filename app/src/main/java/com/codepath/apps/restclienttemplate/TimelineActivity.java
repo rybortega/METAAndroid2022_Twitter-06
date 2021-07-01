@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -37,7 +38,6 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     Button btnLogOut;
     private SwipeRefreshLayout swipeContainer;
-    MenuItem miActionProgressItem;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,19 +45,6 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        miActionProgressItem = menu.findItem(R.id.miActionProgress);
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    public void showProgressBar() {
-        miActionProgressItem.setVisible(true);
-    }
-
-    public void hideProgressBar() {
-        miActionProgressItem.setVisible(false);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -141,6 +128,7 @@ public class TimelineActivity extends AppCompatActivity {
                 Log.i(TAG, "onFailure! " + response, throwable);
             }
         });
+
     }
 
     private void fetchTimelineAsync(int page) {
