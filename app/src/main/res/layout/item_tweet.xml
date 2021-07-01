@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
@@ -24,6 +24,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:autoLink="all"
+        android:linksClickable="true"
         tools:text="evaishaprakash" />
 
     <TextView
@@ -43,5 +45,15 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         tools:text="5m" />
+
+    <ImageView
+        android:id="@+id/tweetMedia"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBody"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/ivProfileImage"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>

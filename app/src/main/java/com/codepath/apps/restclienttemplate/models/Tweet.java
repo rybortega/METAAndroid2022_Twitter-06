@@ -19,6 +19,9 @@ public class Tweet {
     public String body;
     public String createdAt;
     public User user;
+    public boolean hasMedia;
+    public ArrayList<String> embeddedImages;
+    public String firstEmbeddedImage;
 
     public Tweet(){}
 
@@ -27,6 +30,35 @@ public class Tweet {
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = tweet.getRelativeTimeAgo(jsonObject.getString("created_at"));
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+
+        JSONObject entities = jsonObject.getJSONObject("entities");
+        if(entities.has("media")) {
+            JSONArray media = entities.getJSONArray("media");
+            tweet.hasMedia = true;
+            tweet.embeddedImages = new ArrayList<>();
+            for (int i = 0; i < media.length(); i++) {
+                tweet.embeddedImages.add(media.getJSONObject(i).getString("media_url_https"));
+            }
+            tweet.firstEmbeddedImage = tweet.embeddedImages.get(0);
+        } else if (jsonObject.has("extended_entities")){
+            JSONArray media = jsonObject.getJSONObject("extended_entities").getJSONArray("media");
+            tweet.hasMedia = true;
+            tweet.embeddedImages = new ArrayList<>();
+            for (int i = 0; i < media.length(); i++) {
+                tweet.embeddedImages.add(media.getJSONObject(i).getString("media_url_https"));
+            }
+            tweet.firstEmbeddedImage = tweet.embeddedImages.get(0);
+
+        }
+
+        else {
+
+
+            tweet.hasMedia = false;
+            tweet.embeddedImages = new ArrayList<>();
+            tweet.firstEmbeddedImage = "";
+        }
+
         return tweet;
     }
 
