@@ -34,6 +34,8 @@ public class DetailsActivity extends AppCompatActivity {
         userID.setText(tweet.user.screenName);
         tweetBody.setText(tweet.body);
         Glide.with(DetailsActivity.this).load(tweet.user.profileImageUrl).into(profileImage);
+
+        //Hide ImageView if there is no embedded media to display
         if (tweet.hasMedia) {
             tweetImage.setVisibility(View.VISIBLE);
             Glide.with(DetailsActivity.this).load(tweet.firstEmbeddedImage).into(tweetImage);

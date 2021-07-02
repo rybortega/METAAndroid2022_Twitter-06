@@ -1,6 +1,13 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import android.provider.ContactsContract;
 import android.util.Log;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,13 +21,32 @@ import java.util.List;
 import java.util.Locale;
 
 @Parcel
+@Entity(foreignKeys = @ForeignKey(entity=User.class, parentColumns="id", childColumns="userId"))
 public class Tweet {
 
+    @PrimaryKey
+    @ColumnInfo
+    public long id;
+
+    @ColumnInfo
     public String body;
+
+    @ColumnInfo
     public String createdAt;
+
+    @ColumnInfo
+    public long userId;
+
+    @Ignore
     public User user;
+
+    @Ignore
     public boolean hasMedia;
+
+    @Ignore
     public ArrayList<String> embeddedImages;
+
+    @Ignore
     public String firstEmbeddedImage;
 
     public Tweet(){}
@@ -35,8 +61,11 @@ public class Tweet {
         }
 
         tweet.createdAt = tweet.getRelativeTimeAgo(jsonObject.getString("created_at"));
-        tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        User user = User.fromJson(jsonObject.getJSONObject("user"));
+        tweet.user = user;
+        tweet.userId = tweet.user.id;
 
+        //Check for embedded media and retrieve the first embedded image if necessary
         JSONObject entities = jsonObject.getJSONObject("entities");
         if(entities.has("media")) {
             JSONArray media = entities.getJSONArray("media");

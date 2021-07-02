@@ -40,6 +40,8 @@ public class ComposeActivity extends AppCompatActivity {
 
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+
+        //Commented out any leftover progress bar work
         //miActionProgressItem = findViewById(R.id.miActionProgress);
 
         btnTweet.setOnClickListener(new View.OnClickListener() {
