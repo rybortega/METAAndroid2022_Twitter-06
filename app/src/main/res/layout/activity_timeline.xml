@@ -16,6 +16,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTweets"
             android:layout_width="match_parent"
+            android:background="@color/twitter_blue_30"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -33,11 +34,12 @@
         android:id="@+id/btnLogOut"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="554dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="1dp"
+        android:background="@color/twitter_blue"
+        android:textColor="@android:color/black"
         android:text="Logout" />
 </RelativeLayout>
