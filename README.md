@@ -27,6 +27,7 @@ The following **optional** features are implemented:
 * [ ] User sees an **indeterminate progress indicator** when any background or network task is happening (this did not end up working but I and multiple TAs spent a lot of time on it, which caused me to miss out on other stretch stories)
 * [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 * [ ] User can click on a tweet to be taken to a "detail view" of that tweet
+* [ ] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
 
 ## Video Walkthrough
 
