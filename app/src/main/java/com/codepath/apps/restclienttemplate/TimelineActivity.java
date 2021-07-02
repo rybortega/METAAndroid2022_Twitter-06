@@ -21,6 +21,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import java.util.List;
 
 import okhttp3.Headers;
 
-public class TimelineActivity extends AppCompatActivity {
+public class TimelineActivity extends AppCompatActivity implements TweetsAdapter.OnTweetListener{
 
     public static final String TAG = "TimelineActivity";
     private final int REQUEST_CODE = 20;
@@ -44,7 +45,6 @@ public class TimelineActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -88,7 +88,7 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets = findViewById(R.id.rvTweets);
         btnLogOut = findViewById(R.id.btnLogOut);
         tweets = new ArrayList<>();
-        adapter = new TweetsAdapter(this, tweets);
+        adapter = new TweetsAdapter(this, tweets, this);
 
         rvTweets.setLayoutManager(new LinearLayoutManager(this));
         rvTweets.setAdapter(adapter);
@@ -152,4 +152,10 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onTweetClick(int position) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("tweet", Parcels.wrap(tweets.get(position)));
+        startActivity(intent);
+    }
 }
