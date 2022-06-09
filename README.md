@@ -1,33 +1,26 @@
-# Project 3 - Twitter
+# Project 1 - ToDoList
 
-**Twitter** is an android app that allows a user to view their Twitter timeline and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
+ToDoList is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
 
-Time spent: **15** hours spent in total
+Submitted by: Lizzy Ling
+
+Time spent: 2 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-* [ ]	User can **sign in to Twitter** using OAuth login
-* [ ]	User can **view tweets from their home timeline**
-  * [ ] User is displayed the username, name, and body for each tweet
-  * [ ] User is displayed the [relative timestamp](https://gist.github.com/nesquena/f786232f5ef72f6e10a7) for each tweet "8m", "7h"
-* [ ] User can **compose and post a new tweet**
-  * [ ] User can click a “Compose” icon in the Action Bar on the top right
-  * [ ] User can then enter a new tweet and post this to Twitter
-  * [ ] User is taken back to home timeline with **new tweet visible** in timeline
-  * [ ] Newly created tweet should be manually inserted into the timeline and not rely on a full refresh
-* [ ] User can **see a counter with total number of characters left for tweet** on compose tweet page
-* [ ] User can **pull down to refresh tweets timeline**
-* [ ] User can **see embedded image media within a tweet** on list or detail view.
+* [X] User can **view a list of todo items**
+* [X] User can **successfully add and remove items** from the todo list
+* [X] User's **list of items are persisted** across app restarts
 
-The following **optional** features are implemented:
+The following **bonus** features are implemented:
 
-* [ ] User is using **"Twitter branded" colors and styles**
-* [ ] User sees an **indeterminate progress indicator** when any background or network task is happening (this did not end up working but I and multiple TAs spent a lot of time on it, which caused me to miss out on other stretch stories)
-* [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
-* [ ] User can click on a tweet to be taken to a "detail view" of that tweet
-* [ ] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
+* [ ] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected back in the todo list
+
+The following **additional** features are implemented:
+
+* [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 
